@@ -7,7 +7,9 @@ class FootyStatsFixtureParser:
         self._team_id = 'data-comp-id'
         self._odds_id = ' hover-modal-parent'
         self._num_teams = 20
-
+    # This defines a class named FootyStatsFixtureParser.
+    # It has an __init__ method that initializes three instance variables: _team_id, _odds_id, and _num_teams.
+    # These variables hold certain identifiers and numbers used later in the methods of this class.
     def _get_match_table(self, fixture_str, fixture_date: str) -> str or None:
         tables = fixture_str.split(fixture_date)
 

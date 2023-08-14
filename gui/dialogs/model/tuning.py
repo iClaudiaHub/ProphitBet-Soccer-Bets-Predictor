@@ -538,7 +538,10 @@ class TuningRFDialog(TuningDialog):
             min_samples_split=best_params['min_samples_split'],
             bootstrap=best_params['bootstrap'],
             class_weight=best_params['class_weight'],
-            is_calibrated=best_params['is_calibrated']
+            is_calibrated=best_params['is_calibrated'])
+
+    def _update_model(self, model: Model, best_params: dict):
+        model.build_model(
         )
 
     def _display_best_params(self, best_params: dict):
