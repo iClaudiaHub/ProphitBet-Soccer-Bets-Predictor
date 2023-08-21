@@ -14,6 +14,16 @@ class League:
         self._year_start = year_start
         self._league_type = league_type
         self._fixtures_url = fixtures_url
+    # The constructor (__init__ method) takes several arguments representing attributes of a league: country, name, url, year_start, league_type, and fixtures_url.
+
+    # The constructor initializes an instance of the League class. It takes the following arguments:
+    # country: A string representing the country where the league is located.
+    # name: A string representing the name of the league.
+    # url: A string representing the URL associated with the league.
+    # year_start: An integer representing the starting year of the league.
+    # league_type: A string representing the type or category of the league.
+    # fixtures_url: A string representing the URL for the league's fixtures.
+    # Inside the constructor, the provided arguments are used to initialize instance variables that correspond to these attributes.
 
     @property
     def country(self) -> str:
@@ -42,3 +52,12 @@ class League:
     @property
     def fixtures_url(self) -> str:
         return self._fixtures_url
+    # These property methods define getter methods for accessing the attributes of the League class.
+    # The @property decorator is used to mark these methods as properties that can be accessed like attributes (without parentheses).
+    # Additionally, a setter method is defined for the year_start attribute using the @year_start.setter decorator.
+    # This allows you to modify the year_start attribute while ensuring any necessary validation or processing takes place.
+
+    # In summary, the League class provides a blueprint for creating instances representing sports leagues.
+    # It has attributes like country, name, url, year_start, league_type, and fixtures_url.
+    # It also includes property methods for easy access to these attributes, including a setter method for year_start to allow modification.
+    # This class seems designed to encapsulate information about a sports league in a convenient and structured manner.

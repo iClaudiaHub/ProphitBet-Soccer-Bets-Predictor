@@ -7,9 +7,10 @@ class FootyStatsFixtureParser:
         self._team_id = 'data-comp-id'
         self._odds_id = ' hover-modal-parent'
         self._num_teams = 20
-    # This defines a class named FootyStatsFixtureParser.
-    # It has an __init__ method that initializes three instance variables: _team_id, _odds_id, and _num_teams.
-    # These variables hold certain identifiers and numbers used later in the methods of this class.
+        # This defines a class named FootyStatsFixtureParser.
+        # It has an __init__ method that initializes three instance variables: _team_id, _odds_id, and _num_teams.
+        # These variables hold certain identifiers and numbers used later in the methods of this class.
+
     def _get_match_table(self, fixture_str, fixture_date: str) -> str or None:
         tables = fixture_str.split(fixture_date)
 
@@ -17,6 +18,9 @@ class FootyStatsFixtureParser:
             return None
 
         return tables[1]
+        # This is a private method _get_match_table that takes fixture_str (HTML content) and fixture_date as arguments.
+        # It splits the fixture_str based on fixture_date and returns the second part of the split if it exists,
+        # which represents the table containing match information.
 
     def _get_teams(self, table_lines: str) -> (list, list) or (None, None):
         home_teams = []
@@ -31,6 +35,9 @@ class FootyStatsFixtureParser:
             home_teams.append(team_lines[i].split('>', 1)[1].split('<', 1)[0])
             away_teams.append(team_lines[i+1].split('>', 1)[1].split('<', 1)[0])
         return home_teams, away_teams
+        # This private method _get_odds takes table_lines and num_matches as inputs
+        # (the match table content and number of matches) and extracts betting odds for each match outcome
+        # (home win, draw, away win).
 
     def _get_odds(self, table_lines: str, num_matches: int) -> (list, list, list) or (None, None, None):
         odds_1 = []
@@ -91,3 +98,6 @@ class FootyStatsFixtureParser:
             'X': odds_x,
             '2': odds_2
         })
+        # This method parse_fixture takes fixture_filepath, fixtures_month, fixtures_day, and unique_league_teams as arguments.
+        # It reads the HTML content from fixture_filepath, extracts match data, odds, and then uses the match_fixture_teams function to match team names.
+        # Finally, it returns a Pandas DataFrame containing the parsed information.
